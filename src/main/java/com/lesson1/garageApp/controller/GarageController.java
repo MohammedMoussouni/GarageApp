@@ -5,11 +5,14 @@ import com.lesson1.garageApp.service.GarageService;
 
 import java.util.List;
 
+//import javax.lang.model.element.Name;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -26,7 +29,19 @@ public class GarageController{
     //Sinon cela ressemblerait à ça :
     //
     //@RequestMapping(method = RequestMethod.GET, value = "/cars")
-    
+    @RequestMapping(method = RequestMethod.GET, value="/")
+    public String helloWorld(@RequestParam(value = "name", defaultValue = "World") String name){
+        return String.format("Hello %s !", name);
+    }
+    // to see the result write this following URL : http://localhost:8080/?name=toto
+
+    @RequestMapping(method = RequestMethod.GET, value="/hello/{name}")
+    public String hello(@PathVariable String name){
+        return String.format("Hello %s!", name);
+    }
+    // to see the result write this following URL : http://localhost:8080/hello/toto
+
+
     @RequestMapping("/cars")
     public List<Car> getCars(){
         return garageService.getCars();
