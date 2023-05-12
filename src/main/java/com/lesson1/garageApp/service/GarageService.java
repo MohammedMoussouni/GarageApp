@@ -12,7 +12,7 @@ import com.lesson1.garageApp.model.Color;
 @Service
 public class GarageService {
     
-    static private ArrayList<Car> cars = new ArrayList<>(Arrays.asList(
+    private static ArrayList<Car> cars = new ArrayList<>(Arrays.asList(
             new Car(1,"laguna", "renault", 2019, Color.RED),
             new Car(2,"C4", "Citroen", 2015, Color.GREEN),
             new Car(3,"Q8", "Audi", 2019, Color.BLUE),
