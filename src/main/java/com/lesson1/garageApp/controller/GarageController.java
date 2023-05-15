@@ -22,22 +22,21 @@ public class GarageController{
 
     @Autowired
     private GarageService garageService;
-    
     //Par défaut, @RequestMapping utilise la méthode GET 
     //donc pas la peine de le préciser ici
     //
     //Sinon cela ressemblerait à ça :
     //
     //@RequestMapping(method = RequestMethod.GET, value = "/cars")
-    @RequestMapping(method = RequestMethod.GET, value="/")
+    @RequestMapping(method = RequestMethod.GET, value="/hello")
     public String helloWorld(@RequestParam(value = "name", defaultValue = "World") String name){
         return String.format("Hello %s !", name);
     }
-    // to see the result write this following URL : http://localhost:8080/?name=toto
+    // to see the result write this following URL : http://localhost:8080/hello?name=toto
 
     @RequestMapping(method = RequestMethod.GET, value="/hello/{name}")
     public String hello(@PathVariable String name){
-        return String.format("Hello %s!", name);
+        return String.format("Hello %s !", name);
     }
     // to see the result write this following URL : http://localhost:8080/hello/toto
 
